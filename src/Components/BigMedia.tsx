@@ -60,9 +60,11 @@ const BigMedia: React.FC<MediaItem> = ({ source, type }) => {
     }
   };
 
-  const getYouTubeEmbedUrl = (url: string) => {
-    return`${url}?autoplay=1&mute=1`;
-  };
+    const getYouTubeEmbedUrl = (url: string) => {
+        const videoId = new URL(url).searchParams.get("v");
+
+        return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
+    };
 
   return (
     <>
